@@ -2,11 +2,17 @@ import cv2
 
 
 class IPCamera:
-    def __init__(self, ip_address, port, width, height):
+    def __init__(self, ip_address, port, width=None, height=None):
+
+        self.video_capture = None
+        if width is None or height is None:
+            self.size = None
+        else:
+            self.size = (width, height)
+
         self.ip_address = ip_address
         self.port = port
         self.video_capture = None
-        self.size = (width, height)
 
     def connect(self):
 
@@ -30,10 +36,14 @@ class IPCamera:
         if not ret:
             print("Video akışından çerçeve alınamadı.")
             return None
-        frame = cv2.resize(frame, self.size)
+        if self.size is not None:
+            frame = cv2.resize(frame, self.size)
+
         return frame
 
-''' örnek kullanım :  
+
+''' 
+örnek kullanım :  
 
 # IP kamera bağlantısı
 ip_camera = IPCamera(ip_address='192.168.1.100', port=8080, width=640, height=480)
