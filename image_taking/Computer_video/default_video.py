@@ -2,9 +2,12 @@ import cv2
 
 
 class TestCamera:
-    def __init__(self, width, height):
+    def __init__(self, width=None, height=None):
         self.video_capture = None
-        self.size = (width, height)
+        if width is None or height is None:
+            self.size = None
+        else:
+            self.size = (width, height)
 
     def connect(self):
 
@@ -26,21 +29,24 @@ class TestCamera:
         if not ret:
             print("Video akışından çerçeve alınamadı.")
             return None
-        frame = cv2.resize(frame, self.size)
+        if self.size is not None:
+            frame = cv2.resize(frame, self.size)
+
         return frame
 
-''' örnek kullanım :  
+
+''' 
+örnek kullanım :  
 
 # Default camera bağlantısı
-test_camera = TestCamera(640, 480)
+test_camera = TestCamera()
 connected = test_camera.connect()
 
 if connected:
     while True:
 
-        frame = ip_camera.get_frame()
+        frame = test_camera.get_frame()
         if frame is not None:
-
             # model_output = model.predict(frame)
 
             cv2.imshow('Frame', frame)
@@ -48,8 +54,7 @@ if connected:
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    ip_camera.disconnect()
-
+    test_camera.disconnect()
 
 cv2.destroyAllWindows()
 '''
