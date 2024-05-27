@@ -1,9 +1,3 @@
-#object-detection Branch:
--
-#alert-sending Branch:
--
-#GUI Branch:
--
 # NoSQL_develop Branch:
 
 This branch is dedicated to the development of the NoSQL database integration feature for the project.
