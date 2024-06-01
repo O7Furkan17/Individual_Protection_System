@@ -8,6 +8,5 @@ In this branch, we are focusing on integrating a NoSQL database into our system 
 
 ## Goals
 
-- Develop API endpoints for data transmission between the application and the NoSQL database.
 - Implement functionalities for storing and retrieving real-time alerts and model outputs.
 - Test the integration thoroughly to ensure reliability and performance.
