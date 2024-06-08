@@ -1,0 +1,8 @@
+-timestam
+-image_id
+-image_url or image path
+-detections_list : 
+	object_id,
+        	image_id,
+       	class,
+       	confidence
