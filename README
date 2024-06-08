@@ -1,13 +1,11 @@
-Real-Time Camera Image Attack Detection and Instant Alert System (Gerçek Zamanlı Kamera Görüntüsünden Saldırı Tespiti ve Anlık Uyarı Sistemi)
+This code uses the SMTP (Simple Mail Transfer Protocol) protocol to send emails. SMTP is a standard protocol used to send and receive email messages. The code also encrypts the communication using the SSL (Secure Sockets Layer) protocol, ensuring security in the communication. This API is used to send an email with a specific subject and content to a specific email address. The SMTP server and port number required for sending emails are predefined.
 
-This project focuses on a system that detects firearms such as pistols, rifles, and sharp objects like knives from real-time camera images using artificial intelligence to provide instant alerts. The project integrates fundamental functions such as real-time image processing, running artificial intelligence models, and providing instant alerts.
+The __init__ method of the class is initialized with default values such as the SMTP server and port number. The alertConfig method sets the email and password provided by the user. The send_email method sends an email with the specified subject and content to the specified email address.
 
-Components of the attack detection and alert system include:
--> Transfer of image from IP camera to computer
--> Providing the obtained image as input to the trained model to detect firearms and sharp objects
--> Transmitting alerts to the necessary channels in case of detection of dangerous objects
+To use the code:
 
-To clone : git clone https://github.com/O7Furkan17/Individual_Protection_System.git
-To run   : 
-  -if you want to run it on pc default webcam  -> run --mode 0
-  -otherwise -> run --mode "your camera IP " 
+```ruby
+    email_sender = AlertSending()
+    email_sender.alertConfig(my_mail, my_passaword)
+    email_sender.send_email(alarm_mail, "Subject", "message")
+```
