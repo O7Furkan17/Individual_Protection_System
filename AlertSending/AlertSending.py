@@ -1,8 +1,11 @@
-import smtplib, ssl
 import re
+import smtplib
+import ssl
+
 
 class AlertSending:
-    def __init__(self, smtp_server="smtp.gmail.com" ,port=465):
+
+    def __init__(self, smtp_server="smtp.gmail.com", port=465):
         self.smtp_server = smtp_server
         self.port = port
         self.email = ""
@@ -34,12 +37,3 @@ class AlertSending:
                 print(f"Email could not be sent: {e}")
         else:
             print("Please enter your email and password first. Method: alertConfig(email,password)")
-
-if __name__ == "__main__":
-    my_mail = "abcde@gmail.com"
-    my_passaword = "123456"
-    alarm_mail = "police@gmail.com"
-
-    email_sender = AlertSending()
-    email_sender.alertConfig(my_mail, my_passaword)
-    email_sender.send_email(alarm_mail, "Help!!", "Please help me !!")

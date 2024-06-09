@@ -1,4 +1,5 @@
 from datetime import datetime
+import io
 
 class DetectionData:
     def __init__(self, db_connection, collection_name):
@@ -11,14 +12,24 @@ class DetectionData:
             return int(last_entry["image_id"])
         return 0
 
-    def insert_detection(self, image_url, detections_list):
+    def insert_detection(self, image_data, detections_list):
+        # Convert PIL Image to bytes
+        image_bytes = io.BytesIO()
+        image_data.save(image_bytes, format='JPEG')
+        image_bytes = image_bytes.getvalue()
+
+
+        # Prepare data to be inserted
         data = {
-            "timestamp": datetime.now().isoformat(),
+            "timestamp": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"),
             "image_id": str(self.current_id),
-            "image_url": image_url,
+            "image_data": image_bytes,
             "detections_list": detections_list
         }
+
+        # Insert data into the database
         result = self.collection.insert_one(data)
         self.current_id += 1
         return result.inserted_id
+
 
