@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 
 #default_uri = 'mongodb://localhost:27017/'
-default_uri = 'mongodb+srv://user:user123user@yolodetects.96xalgl.mongodb.net/'
+default_uri = ''
 default_dbName = 'IndividualProtectionSys'
 
 class MongoDBConnection:
