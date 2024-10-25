@@ -1,0 +1,11 @@
+This code uses the SMTP (Simple Mail Transfer Protocol) protocol to send emails. SMTP is a standard protocol used to send and receive email messages. The code also encrypts the communication using the SSL (Secure Sockets Layer) protocol, ensuring security in the communication. This API is used to send an email with a specific subject and content to a specific email address. The SMTP server and port number required for sending emails are predefined.
+
+The __init__ method of the class is initialized with default values such as the SMTP server and port number. The alertConfig method sets the email and password provided by the user. The send_email method sends an email with the specified subject and content to the specified email address.
+
+To use the code:
+
+```ruby
+    email_sender = AlertSending()
+    email_sender.alertConfig(my_mail, my_passaword)
+    email_sender.send_email(alarm_mail, "Subject", "message")
+```
