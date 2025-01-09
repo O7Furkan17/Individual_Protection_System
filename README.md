@@ -8,7 +8,7 @@
 This project focuses on a system that detects firearms such as pistols, rifles, and sharp objects like knives from real-time camera images using artificial intelligence to provide instant alerts. The project integrates fundamental functions such as real-time image processing, running artificial intelligence models, and providing instant alerts.
 
 ### Components of the attack detection and alert system include:
-- 🔄 Transfer of image from IP camera to computer
+- 🔄 Transfer of image from IP camera to computer.
 - 🧠 Providing the obtained image as input to the trained model to detect firearms and sharp objects
 - 📢 Transmitting alerts to the necessary channels in case of detection of dangerous objects
 
